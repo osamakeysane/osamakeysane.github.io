@@ -1,3 +1,23 @@
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
 // Current year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -33,4 +53,14 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   alert("Thank you for your message! I will get back to you soon.");
   form.reset();
+});
+
+const toTopBtn = document.getElementById("toTopBtn");
+
+window.onscroll = () => {
+  toTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+
+toTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
