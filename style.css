@@ -80,6 +80,10 @@ nav {
 .nav-links a:hover::after {
   width: 100%;
 }
+nav a.active {
+  font-weight: bold;
+  color: #007bff; /* or your highlight color */
+}
 
 /* Hero Section */
 .hero {
@@ -435,6 +439,24 @@ footer {
 .copyright {
   color: var(--gray);
   margin-top: 2rem;
+}
+#toTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#toTopBtn:hover {
+  background-color: #0056b3;
 }
 
 /* Responsive */
